@@ -1,7 +1,7 @@
 'use client';
 import * as React from "react";
-import { HamburgerMenuIcon, BellIcon, PersonIcon } from "@radix-ui/react-icons";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { HamburgerMenuIcon} from "@radix-ui/react-icons";
+// import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -72,7 +72,7 @@ export default function Navbar() {
             />
             <div className="flex shrink-0 items-center">
               <Link href="#" className="text-white text-lg font-bold">
-                Bilal's Portfolio
+                Bilal&#39;s Portfolio
               </Link>
             </div>
             {/* Desktop navigation */}

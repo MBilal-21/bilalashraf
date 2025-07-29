@@ -1,12 +1,12 @@
 
 import Head from "next/head";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Bilal's Portfolio</title>
+        <title>Bilal&#39;s Portfolio</title>
         <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
       </Head>
       {/* Main content bg-[#111518]*/}
@@ -32,7 +32,7 @@ export default function Home() {
                 />
                 <div className="flex flex-col gap-2 text-center bg-[#000000b5] z-10 p-4 rounded-lg">
                   <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">
-                    Hi, I'm Bilal
+                    Hi, I&#39;m Bilal
                   </h1>
                   <h2 className="text-white text-sm font-normal md:text-base">
                     A freelance developer passionate about Web and AI technologies. <br />
@@ -45,7 +45,7 @@ export default function Home() {
                     <span className="truncate">View Projects</span>
                   </button>
                   <button className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-full h-10 px-4 md:h-12 md:px-5 bg-[#283139] text-white text-sm font-bold md:text-base">
-                    <span className="truncate">Let's Talk</span>
+                    <span className="truncate">Let&#39;s Talk</span>
                   </button>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function Home() {
               <div>
                 <p className="text-white text-base font-medium">My Coding and AI Journey</p>
                 <p className="text-[#9cabba] text-sm">
-                  From a curious beginner to a skilled frontend developer and AI enthusiast, my journey has been filled with learning and growth. I've embraced challenges, built innovative projects, and continuously expanded my knowledge in both web development and AI. This path has shaped my approach to problem-solving and fueled my passion for creating impactful solutions.
+                  From a curious beginner to a skilled frontend developer and AI enthusiast, my journey has been filled with learning and growth. I&#39;ve embraced challenges, built innovative projects, and continuously expanded my knowledge in both web development and AI. This path has shaped my approach to problem-solving and fueled my passion for creating impactful solutions.
                 </p>
               </div>
             </div>

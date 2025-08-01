@@ -3,7 +3,7 @@ import * as React from "react";
 import { HamburgerMenuIcon} from "@radix-ui/react-icons";
 // import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const navigation = [
@@ -33,7 +33,7 @@ export default function Navbar() {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -44,8 +44,8 @@ export default function Navbar() {
   return (
     <nav
       className={classNames(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled ? "bg-gray-800 shadow-lg" : " shadow-none"
+        "transition-all duration-300",
+        scrolled ? "bg-black shadow-[0_0_1px_white] sticky top-0 z-50 " : " shadow-none"
       )}
     >
 
@@ -63,16 +63,17 @@ export default function Navbar() {
           </div>
           {/* Logo */}
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <Image
+            {/* <Image
               src="/assets/images/logo.png"
               alt="Logo"
               width={48}
               height={48}
               className="h-8 w-auto sm:ml-0 rounded-full sm:shrink-0 mr-2 sm:mr-4"
-            />
+            /> */}
             <div className="flex shrink-0 items-center">
               <Link href="#" className="text-white text-lg font-bold">
-                Bilal&#39;s Portfolio
+                {/* Bilal&#39;s Portfolio */}
+                Bilal Ashraf
               </Link>
             </div>
             {/* Desktop navigation */}

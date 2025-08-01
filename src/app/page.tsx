@@ -1,39 +1,63 @@
 
-import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Bilal&#39;s Portfolio</title>
-        <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-      </Head>
+      
       {/* Main content bg-[#111518]*/}
-      <div className=" ">
-
-
+      <div>
         {/* Hero Section bg-[#111518]*/}
         <section className="mx-auto max-w-7xl  overflow-x-hidden" style={{ fontFamily: '"Space Grotesk", "Noto Sans", sans-serif' }}>
-          <div className="m-auto py-5 px-4 md:px-40">
+          <div className="m-auto">
             <div className="w-full">
               <div className="relative flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4"
                 style={{
                   backgroundImage:
-                    'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./assets/images/bg.png")',
+                    'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%)',
                 }}>
-                <video
+                {/* style={{
+                  backgroundImage:
+                    'linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("./assets/images/bg.png")',
+                }}> */}
+                {/* <video
                   className="absolute top-0 left-0 w-full h-full rounded-xl object-cover z-0"
                   src="./assets/videos/hero_bg.mp4"
                   autoPlay
                   muted
                   loop
                   playsInline
-                />
-                <div className="flex flex-col gap-2 text-center bg-[#000000b5] z-10 p-4 rounded-lg">
+                /> */}
+              
+                {/* Grid Perspective s*/}
+                <div className="b-grid-container">
+                  <div className="b-perspective-grid"></div>
+                  <div className="b-grid-lines">
+                    <div className="b-grid-line b-vertical"></div>
+                    <div className="b-grid-line b-vertical"></div>
+                    <div className="b-grid-line b-vertical"></div>
+                    <div className="b-grid-line b-horizontal"></div>
+                    <div className="b-grid-line b-horizontal"></div>
+                  </div>
+                </div>
+                {/* <!-- Glow effects --> */}
+                <div className="glow-orb orb1"></div>
+                <div className="glow-orb orb2"></div>
+                {/* Grid Perspective e*/}
+
+                <div className="flex flex-col items-center gap-2 text-center z-10 rounded-lg">{/*  bg-[#000000b5] */}
+
+                  <Image
+                    src="/assets/images/logo1.png"
+                    alt="logo"
+                    width={256}
+                    height={256}
+                    className="h-64 w-64 sm:ml-0 rounded-full sm:shrink-0 mr-2 sm:mr-4"
+                  />
                   <h1 className="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-5xl">
-                    Hi, I&#39;m Bilal
+                    Hi👋, I&#39;m Bilal
                   </h1>
+
                   <h2 className="text-white text-sm font-normal md:text-base">
                     A freelance developer passionate about Web and AI technologies. <br />
                     I help clients build future-ready websites powered by intelligent automation and modern design.
@@ -41,18 +65,53 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className="flex-wrap gap-3 flex justify-center z-10">
+                  <button className="hero-button-1" >
+                    <span className="button__icon-wrapper">
+                      <svg
+                        viewBox="0 0 14 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="button__icon-svg"
+                        width="10"
+                      >
+                        <path
+                          d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                          fill="currentColor"
+                        />
+                      </svg>
+
+                      <svg
+                        viewBox="0 0 14 15"
+                        fill="none"
+                        width="10"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="button__icon-svg button__icon-svg--copy"
+                      >
+                        <path
+                          d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </span>
+                    View Projects
+                  </button>
+                  <button className="hero-button">
+                    <span className="truncate">Let&#39;s Talk</span>
+                  </button>
+                </div>
+                {/* <div className="flex-wrap gap-3 flex justify-center z-10">
                   <button className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-full h-10 px-4 md:h-12 md:px-5 bg-[#0b80ee] text-white text-sm font-bold md:text-base">
                     <span className="truncate">View Projects</span>
                   </button>
                   <button className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-full h-10 px-4 md:h-12 md:px-5 bg-[#283139] text-white text-sm font-bold md:text-base">
                     <span className="truncate">Let&#39;s Talk</span>
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </section>
-{/* ------------------------------------ */}
+        {/* ------------------------------------ */}
         {/* Projects Section */}
         <section className="max-w-4xl mx-auto">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Projects</h2>
@@ -140,13 +199,13 @@ export default function Home() {
         <section className="max-w-4xl mx-auto">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">About Me</h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-            <div className="flex flex-col gap-3 pb-3">
+            <div className="flex flex-col md:flex-row gap-3 pb-3">
               <div
                 className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
                 style={{
                   backgroundImage:
                     'url("/assets/images/aboutme.png")'
-                    // 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAH_QNJh2kvkwhqOQelg9i9YHj4Pyh9HyTsNisHvMAadnZ0lzEqciVLOzKRXTfUk6koEF-zIA5vI-5JX2ssOaKoWP5ahK5hMostbzs1geSO5qEOZ5OZ9hw3Br_0nwGNKTvGKUnxfkhxnmpbOd8spLvK1QQ-GUKQPvkBJVhxtcCbCYo4dI130BvsbZW3HxcZX4fX7oKP2YTVjfg5AdzE0BhocW7Otq5NEtpUB4jIYubAuRg1oRa5pI0qOGKKJwfjVEGewYvNvlr3iAMW")'
+                  // 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAH_QNJh2kvkwhqOQelg9i9YHj4Pyh9HyTsNisHvMAadnZ0lzEqciVLOzKRXTfUk6koEF-zIA5vI-5JX2ssOaKoWP5ahK5hMostbzs1geSO5qEOZ5OZ9hw3Br_0nwGNKTvGKUnxfkhxnmpbOd8spLvK1QQ-GUKQPvkBJVhxtcCbCYo4dI130BvsbZW3HxcZX4fX7oKP2YTVjfg5AdzE0BhocW7Otq5NEtpUB4jIYubAuRg1oRa5pI0qOGKKJwfjVEGewYvNvlr3iAMW")'
                 }}
               />
               <div>
@@ -246,7 +305,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             {/* Social icons here */}
           </div>
-          <p className="text-[#9cabba] text-base">© 2024 Alex Chen. All rights reserved.</p>
+          <p className="text-[#9cabba] text-base">© 2025 Bilal Ashraf. All rights reserved.</p>
         </footer>
       </div>
     </>

@@ -1,27 +1,304 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-
-
 
 
 
 .dot-background {
-    background-image: radial-gradient(circle, #333333 1px, transparent 1px);
-    background-size: 20px 20px;
-    background-color: #000000;
-    opacity: 1;
+  background-image: radial-gradient(circle, #333333 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-color: #000000;
+  opacity: 1;
 }
 
 /* Alternative: Apply directly to body or container */
 body {
   background-image: radial-gradient(circle, #333333 1px, transparent 1px);
   background-size: 20px 20px;
-  background-color: #000000;
+  /* background-color: #000000; */
   opacity: 1;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
+
+/* -------perspective bg s--------- */
+.b-grid-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 100%;
+  perspective: 1000px;
+  pointer-events: none;
+}
+
+.b-perspective-grid {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotateX(75deg);
+  width: 100%;
+  height: 120%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  background-size: 80px 80px;
+  transform-origin: center bottom;
+  mask: linear-gradient(to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.8) 20%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0) 100%);
+  -webkit-mask: linear-gradient(to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.8) 20%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      rgba(255, 255, 255, 0) 100%);
+}
+
+/* Additional grid overlay for more depth */
+.b-perspective-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
+/* Animated grid lines */
+.b-grid-lines {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotateX(75deg);
+  width: 100%;
+  height: 120%;
+  transform-origin: center bottom;
+}
+
+.b-grid-line {
+  position: absolute;
+  background: linear-gradient(to top,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.b-grid-line.b-vertical {
+  width: 2px;
+  height: 100%;
+  top: 0;
+}
+
+.b-grid-line.b-horizontal {
+  height: 2px;
+  width: 100%;
+  left: 0;
+}
+
+.b-grid-line:nth-child(1) {
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.b-grid-line:nth-child(2) {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.b-grid-line:nth-child(3) {
+  left: 75%;
+  animation-delay: 2s;
+}
+
+.b-grid-line:nth-child(4) {
+  top: 30%;
+  animation-delay: 0.5s;
+}
+
+.b-grid-line:nth-child(5) {
+  top: 60%;
+  animation-delay: 1.5s;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Hero content */
+.hero-content {
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #333333, #666666);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  border: 1px solid #555555;
+}
+
+.hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #444444, #777777);
+}
+
+/* Glow effects */
+.glow-orb {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.glow-orb.orb1 {
+  top: 20%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-orb.orb2 {
+  bottom: 20%;
+  right: 10%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .perspective-grid {
+    background-size: 60px 60px;
+  }
+
+  .perspective-grid::before {
+    background-size: 15px 15px;
+  }
+}
+
+/* -------perspective bg e--------- */
+/* btn -1 s*/
+/* From Uiverse.io by Creatlydev */
+:root {
+  --clr: #7808d0;
+  /* Default color */
+  --clr-2: oklch(21% 0.034 264.665);
+  /* Default bg-clor color */
+}
+
+.hero-button-1 {
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--clr);
+  color: #fff;
+  border-radius: 10rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.3s;
+}
+
+.button__icon-wrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: var(--clr);
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.hero-button-1:hover {
+  background-color: var(--clr-2);
+}
+
+.hero-button-1:hover .button__icon-wrapper {
+  color: var(--clr-2);
+}
+
+.button__icon-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.hero-button-1:hover .button__icon-svg:first-child {
+  transition: transform 0.3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.hero-button-1:hover .button__icon-svg--copy {
+  transition: transform 0.3s ease-in-out 0.1s;
+  transform: translate(0);
+}
+
+/* btn -1 e*/

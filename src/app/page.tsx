@@ -1,10 +1,12 @@
 
 import Image from "next/image";
+import "./glassyText.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      
+
       {/* Main content bg-[#111518]*/}
       <div>
         {/* Hero Section bg-[#111518]*/}
@@ -28,7 +30,7 @@ export default function Home() {
                   loop
                   playsInline
                 /> */}
-              
+
                 {/* Grid Perspective s*/}
                 <div className="b-grid-container">
                   <div className="b-perspective-grid"></div>
@@ -40,10 +42,15 @@ export default function Home() {
                     <div className="b-grid-line b-horizontal"></div>
                   </div>
                 </div>
-                {/* <!-- Glow effects --> */}
+                {/* <!-- Glow effect -s --> */}
                 <div className="glow-orb orb1"></div>
                 <div className="glow-orb orb2"></div>
-                {/* Grid Perspective e*/}
+                {/* Grid Perspective -e*/}
+                {/* ----------glassy-text -s------------- */}
+                <div className="glassy-text">
+                  <h1 className="title">FRONTEND<br/>DEVELOPER</h1>
+                </div>
+                {/* ----------glassy-text -e------------- */}
 
                 <div className="flex flex-col items-center gap-2 text-center z-10 rounded-lg">{/*  bg-[#000000b5] */}
 
@@ -65,7 +72,7 @@ export default function Home() {
                   </h2>
                 </div>
                 <div className="flex-wrap gap-3 flex justify-center z-10">
-                  <button className="hero-button-1" >
+                  <Link href={"https://wa.me/message/2YBTYHJJN6XZE1"} className="hero-button-1" >
                     <span className="button__icon-wrapper">
                       <svg
                         viewBox="0 0 14 15"
@@ -93,11 +100,11 @@ export default function Home() {
                         />
                       </svg>
                     </span>
-                    View Projects
-                  </button>
-                  <button className="hero-button">
                     <span className="truncate">Let&#39;s Talk</span>
-                  </button>
+                  </Link>
+                  {/* <button className="hero-button">
+                    <span className="truncate">Let&#39;s Talk</span>
+                  </button> */}
                 </div>
                 {/* <div className="flex-wrap gap-3 flex justify-center z-10">
                   <button className="flex min-w-[84px] max-w-[480px] items-center justify-center rounded-full h-10 px-4 md:h-12 md:px-5 bg-[#0b80ee] text-white text-sm font-bold md:text-base">

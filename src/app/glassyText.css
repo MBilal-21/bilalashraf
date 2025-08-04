@@ -1,0 +1,47 @@
+.glassy-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: 3%;
+    transform: translate(-50%, -50%);
+    z-index: 49;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 1.1;
+
+    /* Text Glass Effect */
+    color: transparent;
+
+    text-shadow: 1.2px 1.2px 0px rgba(0, 0, 0, 0.2),
+        -1.2px -1.2px 0px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .glassy-text {
+        padding: 30px 40px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        letter-spacing: 0.05em;
+    }
+}
+
+@media (max-width: 480px) {
+    .glassy-text {
+        padding: 20px 30px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+}

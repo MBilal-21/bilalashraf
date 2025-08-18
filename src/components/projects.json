@@ -1,0 +1,97 @@
+[
+    {
+      "id": "seraphicmedium",
+      "type":"web_project",
+      "title": "SeraphicMedium.com",
+      "tech": "Wordpress",
+      "img": "/assets/projects-images/seraphicmdeium.png",
+      "liveLink": "https://seraphicmedium.com",
+      "githubLink": "#",
+      "description": "Developed and designed a fully responsive WordPress website...",
+      "fullDescription": "Developed and designed a fully responsive WordPress website for a digital marketing agency. The site highlights core services such as SEO, branding, content creation, social media marketing, and web development. Key responsibilities included custom theme setup, UI/UX design, mobile responsiveness, performance optimization, and SEO structuring. Completed in May 2024.",
+      "features": [
+            "Responsive design",
+            "Custom WordPress theme",
+            "SEO optimization",
+            "Performance tuning"
+        ],
+        "challenges": [
+            "Complex responsive layouts",
+            "Performance optimization with heavy media content"
+        ],
+        "screenshots": [
+            "/assets/projects-images/seraphic-1.png",
+            "/assets/projects-images/seraphic-2.png"
+        ]
+    },
+    {
+      "id": "hummusgrill",
+      "type":"web_project",
+      "title": "Hummus Grill",
+      "tech": "React, Node.js",
+      "img": "/assets/projects-images/hummusgrill.png",
+      "liveLink": "https://hummus-grill.vercel.app",
+      "githubLink": "https://github.com/MBilal-21/HummusGrill",
+      "fullDescription": "I successfully converted the Hummus Grill website from a static HTML format into a dynamic React.js application. This conversion enhances the website's performance, scalability, and maintainability by leveraging React's component-based architecture. Although the backend integration is pending, I developed the frontend to include a functional product ordering interface, preparing it for seamless future integration with a backend service."
+    },
+    {
+  "id": "filmyworld",
+  "type":"web_project",
+  "title": "FilmyWorld",
+  "tech": "React JS, Firebase",
+  "img": "/assets/projects-images/filmyworld.png",
+  "liveLink": "https://filmyworld-ad629.firebaseapp.com/",
+  "githubLink": "https://github.com/MBilal-21/filmyword",
+  "description": "A simple React-based movie browsing website built during my React JS learning journey.",
+  "fullDescription": "FilmyWorld is my very first project created while learning React JS in 2023 through YouTube tutorials by Web3Mantra. It allows users to browse movies, add reviews, and experience a clean UI. The project demonstrates the fundamentals of React components, props, and state management. It was deployed on Firebase Hosting.",
+  "features": [
+    "Movie browsing interface",
+    "Registered User can review movies",
+    "Responsive design with React components",
+    "Deployed using Firebase Hosting",
+    "Beginner-friendly code structure for learning React"
+  ],
+  "challenges": [
+    "Understanding React state and props for the first time",
+    "Implementing review functionality",
+    "Deploying a React app on Firebase"
+  ],
+  "screenshots": [
+    "/assets/projects-images/filmyworld-1.png",
+    "/assets/projects-images/filmyworld-2.png"
+  ]
+},
+{
+  "id": "generative-engine-optimization",
+  "type":"ai_project",
+  "title": "🛠️ Generative Engine Optimization Tool",
+  "tech": "Python, Streamlit, Hugging Face Spaces",
+  "img": "/assets/projects-images/Generative_Engine_Optimzation_tool.png",
+  "liveLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization",
+  "githubLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization/tree/main",
+  "description": "A tool to analyze and optimize website or document content for better visibility in AI-driven generative search engines.",
+  "fullDescription": "🛠️ GEO Tools is an interactive Hugging Face Space built with Streamlit to explore and apply Generative Engine Optimization (GEO). The platform offers website GEO analysis, RAG-augmented content optimization, AI-first SEO scoring, and document Q&A powered by retrieval-augmented generation (RAG). It also includes a content generator tailored for GEO strategies, helping creators adapt to AI-driven search environments like ChatGPT, Gemini, and Perplexity.",
+  "features": [
+    "🌐 Website GEO Analysis",
+    "🔧 RAG-Enhanced Content Optimization",
+    "📊 AI-First SEO Scoring",
+    "📄 Document Q&A with RAG",
+    "🧠 Generate GEO Content",
+    "Interactive UI via Streamlit",
+    "deployment tool using Hugging Face Spaces"
+  ],
+  "challenges": [
+    "Understanding how generative engines reflect content visibility",
+    "Designing an intuitive UI for optimization workflows",
+    "Deploying a real-time demo on Hugging Face Spaces"
+  ],
+  "screenshots": [
+    "/assets/projects-images/Generative_Engine_Optimzation_tool_1.png",
+    "/assets/projects-images/Generative_Engine_Optimzation_tool_2.png",
+    "/assets/projects-images/Generative_Engine_Optimzation_tool_3.png",
+    "/assets/projects-images/Generative_Engine_Optimzation_tool_4.png"
+  ]
+}
+
+
+]

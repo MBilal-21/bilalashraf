@@ -2,8 +2,22 @@
 import Image from "next/image";
 import "./glassyText.css";
 import Link from "next/link";
+import ProjectCard from "@/components/ProjectCard";
+import projects from "@/components/projects.json";
+// import { SiHuggingface } from "react-icons/si"; // Hugging Face isn't in Radix, so we use react-icons
+
+import {
+  GitHubLogoIcon,
+  LinkedInLogoIcon,
+  CodeIcon,
+  RocketIcon,
+  GearIcon,
+  GlobeIcon,
+  LightningBoltIcon,
+} from "@radix-ui/react-icons";
 
 export default function Home() {
+
   return (
     <>
 
@@ -48,7 +62,7 @@ export default function Home() {
                 {/* Grid Perspective -e*/}
                 {/* ----------glassy-text -s------------- */}
                 <div className="glassy-text">
-                  <h1 className="title">FRONTEND<br/>DEVELOPER</h1>
+                  <h1 className="title">FRONTEND<br />DEVELOPER</h1>
                 </div>
                 {/* ----------glassy-text -e------------- */}
 
@@ -120,90 +134,119 @@ export default function Home() {
         </section>
         {/* ------------------------------------ */}
         {/* Projects Section */}
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto" id="projects">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Projects</h2>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-            {[
-              {
-                title: "SeraphicMedium.com",
-                tech: "Wordpress",
-                img: "./assets/projects-images/seraphicmdeium.png",
-                liveLink: "https://seraphicmedium.com",
-                githubLink: "#",
-                description: "Developed and designed a fully responsive WordPress website for a digital marketing agency. The site highlights core services such as SEO, branding, content creation, social media marketing, and web development. Key responsibilities included custom theme setup, UI/UX design, mobile responsiveness, performance optimization, and SEO structuring. Completed in May 2024."
-              },
-              {
-                title: "Hummus Grill",
-                tech: "React, Node.js",
-                img: "./assets/projects-images/hummusgrill.png",
-                liveLink: "https://hummus-grill.vercel.app",
-                githubLink: "https://github.com/MBilal-21/HummusGrill",
-                description: "I successfully converted the Hummus Grill website from a static HTML format into a dynamic React.js application. This conversion enhances the website's performance, scalability, and maintainability by leveraging React's component-based architecture. Although the backend integration is pending, I developed the frontend to include a functional product ordering interface, preparing it for seamless future integration with a backend service."
-              },
-              {
-                title: "Project Gamma",
-                tech: "Angular, Java",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBacRmRGb4-o0K1sKwEkbIiuK_G8AjsFmjF1BWDHEadH7vZrAt2jgBm6GzsLe3uC_tG9zBI7jq0Ph5Gk0EO63Dtvx6x00yQXie11rprxCEyyC-Le7xIlJfi4dmQdK1RFcM9L8gDvFXm4caU5binF40xokwZ0Euczm5HblI95slHGedo0CDhPvqnvIwx0EAQ_n97nju_nv3SvmXkioeSNF_X0O5APQTLbblhlb3PLyXGZO7PlGXqTC05jzopW_-IffkDuQk0qFXKwYlG"
-              },
-              {
-                title: "Project Delta",
-                tech: "Svelte, Go",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAnVPlufp_H3mctQwE7Eb_I-NCEuCkcSY_6rrZ7U_g8M2hJ0ITxP4S2nT50Tb0sTuF_rNhctAUgQFv1Dg76Quyc2e1Cd4wNUjkS_VNdD2qfC1s4BHY4rVLV5stqsU16Gchn5zs3lEtJRrp-Li9KV7zcz5lo9oC0Y5UdWP3TL00Px7-AtgaQ_GS7DLJn2-qFoQJmXvlzPJK1AXXkJgAbYt39OjdDpQmDM5N9u94YU7NtwpKLtjJ_ei35aZv1_V-a3lxVssw84e7LmW7n"
-              },
-              {
-                title: "Project Epsilon",
-                tech: "Next.js, Ruby",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBYlXGbGZsjYJzLg-uIYArJzSdiaiSI5jyBcVhecQPG3PDZtp28DEsJS4Kr0E42QN-vbyQsuaujDyx5LN5B3IdreH0YIhAI7q_V6qRzmgqrmGuwxkslt6Xa_XlJ2rWkVqhdjvuT9ScL8YkUQn1nihGdXU55ynYb2TnYKhmt8fwSX88hwxWPe8XM710GmG7pyzjrO4I6zDF01cO1sRHUO81Mm1lfqX7Xu-UnIL_tAxjdGeZJnNZVK5xNrkGsUwggjoRYQO9Q-6ihhk8U"
-              },
-              {
-                title: "Project Zeta",
-                tech: "Nuxt.js, Rust",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdCAeDhUBxZqoKFEtMKuafyDKCMulic5g_JDLhXhO5KXfAob7ICWcAzxvzeXH91S2-FpQQ5m9qtzgWD99YKdP_hd7LYEZjd6Vy0iS5kMka7sez8OwGdNRN3r7hpisv5NfXHnL1O6MW3b76hlAlQIaltf_tJzxpzAjbA8Fp5S3sbuhF_hC1DZRBDq7Cdx9LPDcKudaxGphpLzrFhwZ82m8X3wB3tECJYKxfg74PB_Fasv6U_SNcuZa5XEL3rsiplzhBeMFOnhCDNgSE"
-              }
-            ].map((proj, idx) => (
-              <div key={idx} className="flex flex-col gap-3 pb-3">
-                <div
-                  className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
-                  style={{ backgroundImage: `url("${proj.img}")` }}
-                />
-                <div>
-                  <p className="text-white text-base font-medium">{proj.title}</p>
-                  <p className="text-[#9cabba] text-sm">{proj.tech}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-3 p-4">
+
+            {
+              projects.map((project) => {
+                if (project.type === "web_project")
+                  return (
+                    <ProjectCard
+                      key={project.id}
+                      {...project}
+                    />
+                  );
+              })
+            }
+            {/* /* { 
+              projects.map((proj, idx) => (
+                <div key={idx} className="flex flex-col gap-3 pb-3">
+                  <div
+                    className="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                    style={{ backgroundImage: `url("${proj.img}")` }}
+                  />
+                  <div>
+                    <p className="text-white text-base font-medium">{proj.title}</p>
+                    <p className="text-[#9cabba] text-sm">{proj.tech}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))} */}
           </div>
         </section>
 
         {/* AI Tools/Chatbots Section */}
         <section className="max-w-4xl mx-auto">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">AI Tools/Chatbots</h2>
-          <div className="flex overflow-x-auto p-4 gap-3">
-            {[1, 2, 3, 4, 5].map((tool) => (
-              <div key={tool} className="flex flex-col gap-4 rounded-lg min-w-40">
-                <div
-                  className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style={{
-                    backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuDKOVnMoiU8ZHZl1ViqX2VMvBEpU8Ud5X2eloESR8DZOLFUa3TPIpMLRhAS6OYqc3fahJmnVGI8hAyoEYbQ4FUlFlZCm_vv513uUBTQApH6-LcbZj7T0nsDDYyEMwg2poqnHlUt1ZekcT3hYY0xWJTw-4OFGOk0XW1qN76RI5YRTC5SQ_pdeSasAPoWqoBlw83y37vd3lj9W-MBLnN_ffAWzmIYiPZ48n97U0z8UHKuhyGdJp-TJ3oMc_2YPfDUbIYTin6MIyElpxTx")`
-                  }}
-                />
-                <div>
-                  <p className="text-white text-base font-medium">Tool {tool}</p>
-                  <p className="text-[#9cabba] text-sm">Description of Tool {tool}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-3 p-4">
+            {
+              projects.map((project) => {
+                if (project.type === "ai_project")
+                  return <ProjectCard key={project.id} {...project} />
+              })}
           </div>
         </section>
 
         {/* Skills & Tools Section */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Skills &amp; Tools</h2>
-          {/* Add your skills grid here, similar to above */}
+        <section className="max-w-5xl mx-auto px-4 py-10" id="skills">
+          <h2 className="text-white text-2xl font-bold text-center mb-8">
+            Skills &amp; Tools
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            {/* Skill Item */}
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/html-5.svg" alt="html" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">HTML</p>
+            </div>
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/css-3.svg" alt="CSS" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">CSS</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <CodeIcon className="w-10 h-10 text-blue-400 mb-3" />
+              <p className="text-white text-sm font-medium">JavaScript</p>
+            </div>
+
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/react.svg" alt="React js" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">React</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/next.svg" alt="Next js" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">Next js</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/node-js.svg" alt="Node js" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">Node.js</p>
+            </div>
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/python.svg" alt="Python" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">Python</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/mongodb.svg" alt="mongodb" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">MongoDB</p>
+            </div>
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/icons/mysql.svg" alt="mysql" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">MY SQL</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <GitHubLogoIcon className="w-10 h-10 text-white mb-3" />
+              <p className="text-white text-sm font-medium">GitHub</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <LightningBoltIcon className="w-10 h-10 text-yellow-400 mb-3" />
+              <p className="text-white text-sm font-medium">TailwindCSS</p>
+            </div>
+
+            <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
+              <img src="/vercel.svg" alt="Vercel" className="w-12 h-12 mb-3" />
+              <p className="text-white text-sm font-medium">Vercel</p>
+            </div>
+          </div>
         </section>
 
         {/* About Me Section */}
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto" id="about">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">About Me</h2>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
             <div className="flex flex-col md:flex-row gap-3 pb-3">
@@ -226,7 +269,7 @@ export default function Home() {
         </section>
 
         {/* Blog Preview Section */}
-        <section className="max-w-4xl mx-auto">
+        {/* <section className="max-w-4xl mx-auto">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Blog Preview</h2>
           <div className="p-4 flex flex-col gap-4">
             <div className="flex items-stretch justify-between gap-4 rounded-xl">
@@ -262,10 +305,10 @@ export default function Home() {
               />
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Contact Section */}
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto" id="contact">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Contact</h2>
           <form className="space-y-4 px-4 pb-8">
             <div className="flex flex-wrap gap-4">
@@ -300,8 +343,48 @@ export default function Home() {
               </button>
             </div>
           </form>
-          <p className="text-[#9cabba] text-sm text-center pb-3">Social Links: [Social Media Icons]</p>
-          <p className="text-[#9cabba] text-sm text-center pb-3">Location: [Your Location]</p>
+       
+{/* Social & Location Section */}
+<div className="mt-6 text-center">
+  <p className="text-[#9cabba] text-sm pb-3 flex items-center justify-center gap-4">
+    <span>Social Links:</span>
+    <a
+      href="https://github.com/MBilal-21/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition-colors"
+    >
+      <GitHubLogoIcon className="w-5 h-5" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/bilalashraf72/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition-colors"
+    >
+      <LinkedInLogoIcon className="w-5 h-5" />
+    </a>
+    <a
+      href="https://huggingface.co/spaces/MBilal-72/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-white transition-colors"
+    >
+      <Image
+        src="icons/hugging-face.svg"
+        alt="Hugging Face"
+        width={20}
+        height={20}
+        className="w-5 h-5"
+      />
+    </a>
+  </p>
+
+  <p className="text-[#9cabba] text-sm text-center pb-3">
+    Location: Pakistan
+  </p>
+</div>
+
         </section>
 
         {/* Footer */}

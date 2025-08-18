@@ -10,9 +10,6 @@ import {
   GitHubLogoIcon,
   LinkedInLogoIcon,
   CodeIcon,
-  RocketIcon,
-  GearIcon,
-  GlobeIcon,
   LightningBoltIcon,
 } from "@radix-ui/react-icons";
 
@@ -186,11 +183,11 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
             {/* Skill Item */}
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/html-5.svg" alt="html" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/html-5.svg" alt="html" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">HTML</p>
             </div>
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/css-3.svg" alt="CSS" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/css-3.svg" alt="CSS" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">CSS</p>
             </div>
 
@@ -201,30 +198,30 @@ export default function Home() {
 
 
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/react.svg" alt="React js" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/react.svg" alt="React js" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">React</p>
             </div>
 
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/next.svg" alt="Next js" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/next.svg" alt="Next js" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">Next js</p>
             </div>
 
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/node-js.svg" alt="Node js" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/node-js.svg" alt="Node js" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">Node.js</p>
             </div>
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/python.svg" alt="Python" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/python.svg" alt="Python" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">Python</p>
             </div>
 
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/mongodb.svg" alt="mongodb" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/mongodb.svg" alt="mongodb" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">MongoDB</p>
             </div>
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/icons/mysql.svg" alt="mysql" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/icons/mysql.svg" alt="mysql" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">MY SQL</p>
             </div>
 
@@ -239,7 +236,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col items-center justify-center p-5 bg-gray-800 rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl transition-all">
-              <img src="/vercel.svg" alt="Vercel" className="w-12 h-12 mb-3" />
+              <Image  width={20}  height={20} src="/vercel.svg" alt="Vercel" className="w-12 h-12 mb-3" />
               <p className="text-white text-sm font-medium">Vercel</p>
             </div>
           </div>

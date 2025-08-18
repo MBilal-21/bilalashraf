@@ -1,3 +1,4 @@
+"use client";
 
 import Image from "next/image";
 import "./glassyText.css";
@@ -307,7 +308,9 @@ export default function Home() {
         {/* Contact Section */}
         <section className="max-w-4xl mx-auto" id="contact">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Contact</h2>
-          <form className="space-y-4 px-4 pb-8">
+          <form className="space-y-4 px-4 pb-8" onSubmit={(e) => {  e.preventDefault();
+                alert("Message sent! (This is a demo, no actual sending implemented)");
+              } }>
             <div className="flex flex-wrap gap-4">
               <label className="flex flex-col min-w-40 flex-1">
                 <span className="text-white text-base font-medium pb-2">Your Name</span>

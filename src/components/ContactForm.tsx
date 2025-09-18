@@ -5,9 +5,6 @@ import { useState } from "react";
 export default function ContactForm() {
     const [loading, setLoading] = useState(false);
 
-    // ✅ put your actual Google Apps Script URL here
-    const SCRIPT_URL = process.env.NEXT_PUBLIC_SCRIPT_URL;
-
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
@@ -17,11 +14,7 @@ export default function ContactForm() {
         const email = (form.elements.namedItem("email") as HTMLInputElement).value;
         const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
 
-        if (!SCRIPT_URL) {
-            alert("❌ Google Script URL is missing. Please configure it first.");
-            setLoading(false);
-            return;
-        }
+        
 
         try {
             const res = await fetch("/api/contact", {
@@ -38,9 +31,13 @@ export default function ContactForm() {
             } else {
                 alert("❌ Failed: " + result.message);
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error(err);
-            alert(`❌ Error: ${err.message}`);
+            if (err instanceof Error) {
+                alert(`❌ Error: ${err.message}`);
+            } else {
+                alert("❌ An unknown error occurred.");
+            }
         } finally {
             setLoading(false);
         }

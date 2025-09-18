@@ -13,6 +13,7 @@ import {
   CodeIcon,
   LightningBoltIcon,
 } from "@radix-ui/react-icons";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
 
@@ -308,7 +309,7 @@ export default function Home() {
         {/* Contact Section */}
         <section className="max-w-4xl mx-auto" id="contact">
           <h2 className="text-white text-[22px] font-bold px-4 pb-3 pt-5">Contact</h2>
-          <form className="space-y-4 px-4 pb-8" onSubmit={(e) => {  e.preventDefault();
+          {/* <form className="space-y-4 px-4 pb-8" onSubmit={(e) => {  e.preventDefault();
                 alert("Message sent! (This is a demo, no actual sending implemented)");
               } }>
             <div className="flex flex-wrap gap-4">
@@ -342,7 +343,8 @@ export default function Home() {
                 <span className="truncate">Send</span>
               </button>
             </div>
-          </form>
+          </form> */}
+          <ContactForm />
        
 {/* Social & Location Section */}
 <div className="mt-6 text-center">

@@ -3,6 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import projects from '@/components/projects.json';
 
+export function generateStaticParams() {
+    return projects.map((project) => ({
+        id: project.id,
+    }));
+}
+
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params; // ⬅ Await params
 
@@ -15,12 +21,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto px-4 pt-28 pb-16">
             <Link
-                href="/"
-                className="text-[#9cabba] hover:text-white mb-6 inline-block"
+                href="/projects"
+                className="text-muted hover:text-accent mb-6 inline-block"
             >
-                ← Back to Home
+                ← All projects
             </Link>
 
             <div className="space-y-8">
@@ -32,8 +38,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                 {/* Project Info */}
                 <div className="space-y-6">
                     <div>
-                        <h1 className="text-white text-2xl md:text-4xl font-bold">{project.title}</h1>
-                        <p className="text-[#9cabba] text-lg mt-2">{project.tech}</p>
+                        <h1 className="font-display uppercase tracking-tight text-ink text-4xl md:text-6xl font-bold">{project.title}</h1>
+                        <p className="text-muted text-lg mt-2">{project.tech}</p>
                     </div>
 
                     <div className="flex gap-4">
@@ -41,7 +47,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                             <a
                                 href={project.liveLink}
                                 rel="noopener noreferrer"
-                                className="bg-[#7808d0] text-white px-6 py-2 rounded-full hover:bg-[#101828] transition-colors"
+                                className="bg-accent text-on-accent px-6 py-2 rounded-full hover:opacity-85 transition-colors"
                             >
                                 View Live
                             </a>
@@ -51,20 +57,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                                 href={project.githubLink}
                                 aria-disabled={true}
                                 rel="noopener noreferrer"
-                                className="bg-[#282828] text-white px-6 py-2 rounded-full hover:bg-[#1f1f1f] transition-colors"
+                                className="border border-ink text-ink px-6 py-2 rounded-full hover:bg-ink hover:text-bg transition-colors"
                             >
                                 View Code
                             </a>
                         )}
                     </div>
 
-                    <div className="prose prose-invert max-w-none">
-                        <p className="text-[#9cabba] text-lg">{project.fullDescription}</p>
+                    <div className="max-w-none">
+                        <p className="text-muted text-lg">{project.fullDescription}</p>
 
                         {project.features && (
                             <>
-                                <h2 className="text-white text-2xl font-bold mt-8 mb-4">Key Features</h2>
-                                <ul className="list-disc pl-6 text-[#9cabba]">
+                                <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold mt-8 mb-4">Key Features</h2>
+                                <ul className="list-disc pl-6 text-muted">
                                     {project.features.map((feature, index) => (
                                         <li key={index}>{feature}</li>
                                     ))}
@@ -74,8 +80,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
 
                         {project.challenges && (
                             <>
-                                <h2 className="text-white text-2xl font-bold mt-8 mb-4">Challenges & Solutions</h2>
-                                <ul className="list-disc pl-6 text-[#9cabba]">
+                                <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold mt-8 mb-4">Challenges & Solutions</h2>
+                                <ul className="list-disc pl-6 text-muted">
                                     {project.challenges.map((challenge, index) => (
                                         <li key={index}>{challenge}</li>
                                     ))}
@@ -87,7 +93,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                     {/* Screenshots */}
                     {project.screenshots && (
                         <div className="space-y-4">
-                            <h2 className="text-white text-2xl font-bold">Screenshots</h2>
+                            <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold">Screenshots</h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {project.screenshots.map((screenshot, index) => (
                                     <div

@@ -1,10 +1,13 @@
 // All home page copy lives here so it can be edited without touching layout code.
-// Items marked TODO are placeholders — replace them with your real details.
 
 export const profile = {
   name: "Bilal Ashraf",
-  role: ["FRONTEND", "DEVELOPER"],
-  intro: "Freelance developer from Pakistan building fast websites and AI tools.",
+  role: ["FULL-STACK", "ENGINEER"],
+  intro:
+    "Full-stack software engineer from Pakistan building web platforms and AI integrations with React, TypeScript, Next.js and Supabase.",
+  openTo: "Open to full-time full-stack and AI engineering roles.",
+  about:
+    "I'm Bilal, a full-stack software engineer with a BS in Information Technology. I own a live internal platform at Afflix Media used by 30+ employees, plus external clients and creators. I also run its self-hosted infrastructure and built a custom MCP server that connects it to Claude. Outside work I build LLM, Android and IoT projects.",
   email: "bilalm3313@gmail.com",
   whatsapp: "https://wa.me/message/2YBTYHJJN6XZE1",
   location: "Pakistan",
@@ -13,8 +16,8 @@ export const profile = {
 export const navigation = [
   { name: "Home", href: "/#home" },
   { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
   { name: "Projects", href: "/#projects" },
-  { name: "Blogs", href: "/#insights" },
 ];
 
 export const socials = [
@@ -26,17 +29,22 @@ export const socials = [
 export const services = [
   {
     title: "Web Development",
-    text: "Responsive, fast-loading websites built with React and Next.js, from landing pages to full web apps.",
+    text: "Responsive, fast-loading websites and web apps built with React and Next.js.",
     tags: ["React", "Next.js", "Tailwind CSS"],
   },
   {
     title: "AI Chatbots & Tools",
-    text: "Custom chatbots and AI-powered tools that answer questions, automate tasks and plug into your existing site.",
-    tags: ["Python", "Streamlit", "RAG"],
+    text: "Custom chatbots and AI-powered tools that answer questions, automate tasks and plug into your existing systems.",
+    tags: ["Python", "MCP", "RAG"],
+  },
+  {
+    title: "Full-Stack Platforms",
+    text: "Internal platforms with role-based access, backed by Supabase and run on self-hosted infrastructure.",
+    tags: ["Supabase", "TypeScript", "Self-hosted infrastructure"],
   },
   {
     title: "WordPress Sites",
-    text: "Custom WordPress themes and setups that are easy for you to update and quick for your visitors to load.",
+    text: "Custom WordPress setups that are easy for you to update and quick for your visitors to load.",
     tags: ["WordPress", "SEO", "Performance"],
   },
   {
@@ -46,25 +54,68 @@ export const services = [
   },
 ];
 
-// TODO: set these to your real numbers.
 export const stats = [
   { value: 2, suffix: "+", label: "Years of Experience" },
   { value: 10, suffix: "+", label: "Projects Completed" },
-  { value: 5, suffix: "+", label: "Happy Clients" },
+  { value: 3, suffix: "", label: "Clients Served" },
 ];
 
-// TODO: replace with real client reviews (name, role, quote).
-export const testimonials = [
-  { name: "Client Name", role: "Role, Company", quote: "Add a short review from a client here. Keep it to two or three sentences." },
-  { name: "Client Name", role: "Role, Company", quote: "Add a short review from a client here. Keep it to two or three sentences." },
-  { name: "Client Name", role: "Role, Company", quote: "Add a short review from a client here. Keep it to two or three sentences." },
-  { name: "Client Name", role: "Role, Company", quote: "Add a short review from a client here. Keep it to two or three sentences." },
+export const experience = [
+  {
+    role: "Full-Stack Web Developer",
+    company: "Afflix Media",
+    companyHref: "https://afflixmedia.com/",
+    period: "June 2026 to present",
+    mode: "Onsite",
+    points: [
+      "Own and maintain the internal platform used daily by 30+ employees, with clients viewing reports and creators signing contracts. Built with React, TypeScript and Supabase.",
+      "Ship new features and fix production bugs on a live system with separate access for employees, clients and creators.",
+      "Run a self-hosted Supabase and other web and MCP applications on a Hostinger VPS, deployed through Coolify.",
+      "Built a custom MCP server that lets Claude read and add records in the self-hosted Supabase, connected to the team's communication channel.",
+    ],
+  },
+  {
+    role: "Freelance Web Developer",
+    period: "May 2024 to October 2025",
+    mode: "Remote",
+    points: [
+      { name: "Falafel Kabob", href: "https://falafel-kabob.vercel.app/", text: "Laravel restaurant app built from Figma designs, with a dynamic menu, cart and checkout." },
+      { name: "Majesticon", href: "https://www.majesticon.co.uk/", text: "WordPress site deployed on Hostinger, with a projects page and a WhatsApp contact widget." },
+      { name: "Seraphic Medium", href: "http://seraphicmedium.com/", text: "WordPress marketing site with an SEO-friendly structure and lead-capture forms." },
+    ],
+  },
 ];
 
-// TODO: set these to your real numbers.
-export const highlightStats = [
-  { value: 100, suffix: "%", label: "Projects Delivered", note: "Every project shipped and live" },
-  { value: 24, suffix: "h", label: "Reply Time", note: "Usually reply within a day" },
+export const certifications = [
+  {
+    name: "Generative AI Mastermind",
+    issuer: "Outskill",
+    date: "Aug 2025",
+    href: "https://s3.ap-south-1.amazonaws.com/assets.growthschool.io/certificates/9b12a4b6-af33-4ace-90ee-855f609f2da3_cert.pdf",
+  },
+  {
+    name: "Generative AI Application Developer",
+    issuer: "Pak Angels with iCodeGuru and ASpire Pakistan",
+    date: "Aug 2025",
+    href: "https://quiz.ideagist.com/ideagist-certificate/?cert_hash=1ea953e83cd8be24",
+  },
+  {
+    name: "Introduction to Embedded Machine Learning",
+    issuer: "Coursera",
+    date: "June 2025",
+    href: "https://www.coursera.org/account/accomplishments/verify/C99C070SWB4V",
+  },
+  {
+    name: "Computer Vision with Embedded Machine Learning",
+    issuer: "Coursera",
+    date: "June 2025",
+    href: "https://www.coursera.org/account/accomplishments/verify/K1WAVLY3HAEZ",
+  },
+];
+
+export const awards = [
+  { name: "2nd Place, AI Prompt Engineering Competition", issuer: "Namal Mianwali", date: "2025" },
+  { name: "Top 10 Finalist, GenAI Hackathon", issuer: "Pak Angels", date: "2025" },
 ];
 
 export const faqs = [
@@ -90,7 +141,10 @@ export const faqs = [
   },
 ];
 
-// TODO: add an `href` to each post once the article is published.
+// Blog cards are hidden until the articles are published.
+// Set this to true (and add an `href` to each post) to show the section again.
+export const showInsights = false;
+
 export const insights = [
   {
     tag: "AI Search",

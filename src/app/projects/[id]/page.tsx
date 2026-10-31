@@ -1,112 +1,139 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-import projects from '@/components/projects.json';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import ProjectVisual from "@/components/ProjectVisual";
+import { projectLinks, projects } from "@/components/projectData";
 
 export function generateStaticParams() {
-    return projects.map((project) => ({
-        id: project.id,
-    }));
+  return projects.map((project) => ({ id: project.id }));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) return {};
+  return { title: `${project.title} | Bilal Ashraf`, description: project.description };
+}
+
+const h2 = "font-display uppercase tracking-tight text-ink text-3xl font-bold mt-10 mb-4";
+
 export default async function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = await params; // ⬅ Await params
+  const { id } = await params;
+  const project = projects.find((p) => p.id === id);
+  if (!project) notFound();
 
-    // Find the project by id from projects.json
-    const project = projects.find(p => p.id === id);
+  const links = projectLinks(project);
+  // The hero image already shows the first screenshot when they are the same file.
+  const screenshots = project.screenshots?.filter((s) => s !== project.img);
 
-    if (!project) {
-        console.log(`Project with id ${id} not found`);
-        notFound();
-    }
+  return (
+    <div className="mx-auto max-w-4xl px-4 pt-28 pb-16">
+      <Link href="/projects" className="mb-6 inline-block text-muted hover:text-accent">
+        ← All projects
+      </Link>
 
-    return (
-        <div className="max-w-4xl mx-auto px-4 pt-28 pb-16">
-            <Link
-                href="/projects"
-                className="text-muted hover:text-accent mb-6 inline-block"
-            >
-                ← All projects
-            </Link>
-
-            <div className="space-y-8">
-                {/* Hero Section */}
-                <div className="w-full bg-center bg-cover rounded-xl">
-                    <Image src={project.img} alt={project.id} width={500} height={400} className='w-full h-auto rounded-xl' />
-                </div>
-
-                {/* Project Info */}
-                <div className="space-y-6">
-                    <div>
-                        <h1 className="font-display uppercase tracking-tight text-ink text-4xl md:text-6xl font-bold">{project.title}</h1>
-                        <p className="text-muted text-lg mt-2">{project.tech}</p>
-                    </div>
-
-                    <div className="flex gap-4">
-                        {project.liveLink && (
-                            <a
-                                href={project.liveLink}
-                                rel="noopener noreferrer"
-                                className="bg-accent text-on-accent px-6 py-2 rounded-full hover:opacity-85 transition-colors"
-                            >
-                                View Live
-                            </a>
-                        )}
-                        {project.githubLink && (
-                            <a
-                                href={project.githubLink}
-                                aria-disabled={true}
-                                rel="noopener noreferrer"
-                                className="border border-ink text-ink px-6 py-2 rounded-full hover:bg-ink hover:text-bg transition-colors"
-                            >
-                                View Code
-                            </a>
-                        )}
-                    </div>
-
-                    <div className="max-w-none">
-                        <p className="text-muted text-lg">{project.fullDescription}</p>
-
-                        {project.features && (
-                            <>
-                                <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold mt-8 mb-4">Key Features</h2>
-                                <ul className="list-disc pl-6 text-muted">
-                                    {project.features.map((feature, index) => (
-                                        <li key={index}>{feature}</li>
-                                    ))}
-                                </ul>
-                            </>
-                        )}
-
-                        {project.challenges && (
-                            <>
-                                <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold mt-8 mb-4">Challenges & Solutions</h2>
-                                <ul className="list-disc pl-6 text-muted">
-                                    {project.challenges.map((challenge, index) => (
-                                        <li key={index}>{challenge}</li>
-                                    ))}
-                                </ul>
-                            </>
-                        )}
-                    </div>
-
-                    {/* Screenshots */}
-                    {project.screenshots && (
-                        <div className="space-y-4">
-                            <h2 className="font-display uppercase tracking-tight text-ink text-3xl font-bold">Screenshots</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {project.screenshots.map((screenshot, index) => (
-                                    <div
-                                        key={index}
-                                        className="w-full aspect-video bg-center bg-cover rounded-xl"
-                                        style={{ backgroundImage: `url(${screenshot})` }}
-                                    />
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </div>
+      <div className="space-y-8">
+        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-soft">
+          <ProjectVisual project={project} sizes="(max-width: 896px) 100vw, 896px" className="object-contain" />
         </div>
-    );
+
+        <div className="space-y-6">
+          <div>
+            <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-ink md:text-6xl">{project.title}</h1>
+            <p className="mt-2 text-lg text-muted">{project.tech}</p>
+          </div>
+
+          {links.length > 0 && (
+            <div className="flex flex-wrap gap-4">
+              {links.map((l, i) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={
+                    i === 0
+                      ? "rounded-full bg-accent px-6 py-2 text-on-accent transition-opacity hover:opacity-85"
+                      : "rounded-full border border-ink px-6 py-2 text-ink transition-colors hover:bg-ink hover:text-bg"
+                  }
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          )}
+
+          {project.video && (
+            <figure>
+              <video
+                controls
+                preload="metadata"
+                playsInline
+                poster={project.video.poster}
+                className="w-full rounded-xl bg-black"
+              >
+                <source src={project.video.src} type="video/mp4" />
+              </video>
+              {project.video.caption && <figcaption className="mt-2 text-sm text-muted">{project.video.caption}</figcaption>}
+            </figure>
+          )}
+
+          <div>
+            <p className="text-lg text-muted">{project.fullDescription}</p>
+
+            {project.features && (
+              <>
+                <h2 className={h2}>{project.featuresTitle ?? "Key Features"}</h2>
+                <ul className="list-disc space-y-1 pl-6 text-muted">
+                  {project.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {project.challenges && (
+              <>
+                <h2 className={h2}>Challenges & Solutions</h2>
+                <ul className="list-disc space-y-1 pl-6 text-muted">
+                  {project.challenges.map((challenge) => (
+                    <li key={challenge}>{challenge}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+
+          {screenshots && screenshots.length > 0 && (
+            <div className="space-y-4">
+              <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-ink">
+                {project.screenshotsTitle ?? "Screenshots"}
+              </h2>
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {screenshots.map((screenshot) => (
+                  <a
+                    key={screenshot}
+                    href={screenshot}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block aspect-video w-full overflow-hidden rounded-xl bg-soft"
+                  >
+                    <Image
+                      src={screenshot}
+                      alt={`${project.title} ${project.screenshotsTitle ? "diagram" : "screenshot"}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 448px"
+                      unoptimized={screenshot.endsWith(".svg")}
+                      className="object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }

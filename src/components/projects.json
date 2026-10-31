@@ -1,97 +1,261 @@
 [
-    {
-      "id": "seraphicmedium",
-      "type":"web_project",
-      "title": "SeraphicMedium.com",
-      "tech": "Wordpress",
-      "img": "/assets/projects-images/seraphicmdeium.png",
-      "liveLink": "https://seraphicmedium.com",
-      "githubLink": "#",
-      "description": "Developed and designed a fully responsive WordPress website...",
-      "fullDescription": "Developed and designed a fully responsive WordPress website for a digital marketing agency. The site highlights core services such as SEO, branding, content creation, social media marketing, and web development. Key responsibilities included custom theme setup, UI/UX design, mobile responsiveness, performance optimization, and SEO structuring. Completed in May 2024.",
-      "features": [
-            "Responsive design",
-            "Custom WordPress theme",
-            "SEO optimization",
-            "Performance tuning"
-        ],
-        "challenges": [
-            "Complex responsive layouts",
-            "Performance optimization with heavy media content"
-        ],
-        "screenshots": [
-            "/assets/projects-images/seraphic-1.png",
-            "/assets/projects-images/seraphic-2.png"
-        ]
+  {
+    "id": "afflix-platform",
+    "type": "web_project",
+    "featured": 1,
+    "title": "Afflix Internal Platform and MCP Server",
+    "tech": "React, TypeScript, Supabase, MCP",
+    "img": "/assets/projects-images/afflix-architecture.svg",
+    "links": [
+      {
+        "label": "Company",
+        "href": "https://afflixmedia.com/"
+      }
+    ],
+    "description": "A live internal platform used by 30+ employees, with a custom MCP server that lets Claude read and add data.",
+    "fullDescription": "An internal operations platform used daily by 30+ employees. Clients sign in to view reports, and creators complete contract signing.",
+    "featuresTitle": "What I built and run",
+    "features": [
+      "New features and production bug fixes on a live system with separate access for employees, clients and creators.",
+      "A self-hosted Supabase (Postgres, auth, storage) on a Hostinger VPS, managed through Coolify.",
+      "A custom MCP server that lets Claude read and add records in natural language, connected to the team's communication channel."
+    ]
+  },
+  {
+    "id": "adversarial-defense-llm",
+    "type": "ai_project",
+    "featured": 2,
+    "title": "Adversarial Defense in LLMs",
+    "tech": "Python, DistilBERT, TinyLlama, QLoRA, Hugging Face",
+    "img": "/assets/projects-images/adversarial-defense.svg",
+    "liveLink": "https://mbilal-72-adversarial-defense-llm.hf.space",
+    "githubLink": "https://github.com/MBilal-21/fyp-layered-defense",
+    "description": "A three-layer pipeline that detects harmful prompts, built for my final year project and deployed as a public demo.",
+    "fullDescription": "A defense pipeline that detects harmful content in three layers. I kept the models small enough to deploy as a public demo on Hugging Face Spaces.",
+    "featuresTitle": "The three layers",
+    "features": [
+      "An intent classifier built on DistilBERT.",
+      "A TinyLlama model fine-tuned with QLoRA.",
+      "A zero-shot validator."
+    ]
+  },
+  {
+    "id": "eventgateway",
+    "type": "web_project",
+    "featured": 3,
+    "title": "EventGateway",
+    "tech": "Next.js, Node.js, Express.js, MongoDB",
+    "img": "/assets/projects-images/eventgateway.webp",
+    "liveLink": "https://event-gateway-six.vercel.app/",
+    "description": "A QR-based event check-in platform with real-time attendance and an analytics dashboard.",
+    "fullDescription": "A check-in platform for events. Staff scan QR codes, attendance is recorded in real time, and duplicate scans are rejected. It has role-based access control and an analytics dashboard.",
+    "features": [
+      "QR code check-in with real-time attendance",
+      "Duplicate scans rejected",
+      "Role-based access control",
+      "Analytics dashboard"
+    ]
+  },
+  {
+    "id": "protecther",
+    "type": "iot_project",
+    "featured": 4,
+    "title": "ProtectHer Smart Safety System",
+    "tech": "ESP32, Kotlin, Firebase, Cloudinary",
+    "githubLink": "https://github.com/MBilal-21/ProtecHer-Smart-Safety-Band-FYP",
+    "description": "A smart safety band and Android app that sends live alerts, GPS location and SOS notifications.",
+    "fullDescription": "A final year project with an end-to-end data path. An ESP32 device captures sensor and image data and syncs it to Firebase in real time. Images are stored in Cloudinary. The Android app, built in Kotlin, receives live alerts, tracks GPS location, sends SOS notifications to chosen contacts, and runs emotion detection on the device.",
+    "features": [
+      "ESP32 device syncing sensor and image data to Firebase in real time",
+      "Image storage in Cloudinary",
+      "Kotlin Android app with live alerts and GPS tracking",
+      "SOS notifications to chosen contacts",
+      "On-device emotion detection"
+    ],
+    "img": "/assets/projects-images/protecther-architecture.webp",
+    "video": {
+      "src": "/assets/videos/protecther-demo.mp4",
+      "poster": "/assets/videos/protecther-demo-poster.webp",
+      "caption": "Demo of the band, firmware, Firebase, Cloudinary, the Android app, the SOS alert and the emotion model. Narration in Urdu with English subtitles. Personal details are blurred."
     },
-    {
-      "id": "hummusgrill",
-      "type":"web_project",
-      "title": "Hummus Grill",
-      "tech": "React, Node.js",
-      "img": "/assets/projects-images/hummusgrill.png",
-      "liveLink": "https://hummus-grill.vercel.app",
-      "githubLink": "https://github.com/MBilal-21/HummusGrill",
-      "fullDescription": "I successfully converted the Hummus Grill website from a static HTML format into a dynamic React.js application. This conversion enhances the website's performance, scalability, and maintainability by leveraging React's component-based architecture. Although the backend integration is pending, I developed the frontend to include a functional product ordering interface, preparing it for seamless future integration with a backend service."
-    },
-    {
-  "id": "filmyworld",
-  "type":"web_project",
-  "title": "FilmyWorld",
-  "tech": "React JS, Firebase",
-  "img": "/assets/projects-images/filmyworld.png",
-  "liveLink": "https://filmyworld-ad629.firebaseapp.com/",
-  "githubLink": "https://github.com/MBilal-21/filmyword",
-  "description": "A simple React-based movie browsing website built during my React JS learning journey.",
-  "fullDescription": "FilmyWorld is my very first project created while learning React JS in 2023 through YouTube tutorials by Web3Mantra. It allows users to browse movies, add reviews, and experience a clean UI. The project demonstrates the fundamentals of React components, props, and state management. It was deployed on Firebase Hosting.",
-  "features": [
-    "Movie browsing interface",
-    "Registered User can review movies",
-    "Responsive design with React components",
-    "Deployed using Firebase Hosting",
-    "Beginner-friendly code structure for learning React"
-  ],
-  "challenges": [
-    "Understanding React state and props for the first time",
-    "Implementing review functionality",
-    "Deploying a React app on Firebase"
-  ],
-  "screenshots": [
-    "/assets/projects-images/filmyworld-1.png",
-    "/assets/projects-images/filmyworld-2.png"
-  ]
-},
-{
-  "id": "generative-engine-optimization",
-  "type":"ai_project",
-  "title": "🛠️ Generative Engine Optimization Tool",
-  "tech": "Python, Streamlit, Hugging Face Spaces",
-  "img": "/assets/projects-images/Generative_Engine_Optimzation_tool.png",
-  "liveLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization",
-  "githubLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization/tree/main",
-  "description": "A tool to analyze and optimize website or document content for better visibility in AI-driven generative search engines.",
-  "fullDescription": "🛠️ GEO Tools is an interactive Hugging Face Space built with Streamlit to explore and apply Generative Engine Optimization (GEO). The platform offers website GEO analysis, RAG-augmented content optimization, AI-first SEO scoring, and document Q&A powered by retrieval-augmented generation (RAG). It also includes a content generator tailored for GEO strategies, helping creators adapt to AI-driven search environments like ChatGPT, Gemini, and Perplexity.",
-  "features": [
-    "🌐 Website GEO Analysis",
-    "🔧 RAG-Enhanced Content Optimization",
-    "📊 AI-First SEO Scoring",
-    "📄 Document Q&A with RAG",
-    "🧠 Generate GEO Content",
-    "Interactive UI via Streamlit",
-    "deployment tool using Hugging Face Spaces"
-  ],
-  "challenges": [
-    "Understanding how generative engines reflect content visibility",
-    "Designing an intuitive UI for optimization workflows",
-    "Deploying a real-time demo on Hugging Face Spaces"
-  ],
-  "screenshots": [
-    "/assets/projects-images/Generative_Engine_Optimzation_tool_1.png",
-    "/assets/projects-images/Generative_Engine_Optimzation_tool_2.png",
-    "/assets/projects-images/Generative_Engine_Optimzation_tool_3.png",
-    "/assets/projects-images/Generative_Engine_Optimzation_tool_4.png"
-  ]
-}
-
-
+    "screenshotsTitle": "Diagrams",
+    "screenshots": [
+      "/assets/projects-images/protecther-architecture.webp",
+      "/assets/projects-images/protecther-circuit.webp"
+    ]
+  },
+  {
+    "id": "generative-engine-optimization",
+    "type": "ai_project",
+    "featured": 5,
+    "title": "🛠️ Generative Engine Optimization Tool",
+    "tech": "Python, Streamlit, Hugging Face Spaces",
+    "img": "/assets/projects-images/Generative_Engine_Optimzation_tool.png",
+    "liveLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization",
+    "githubLink": "https://huggingface.co/spaces/MBilal-72/GenerativeEngineOptimization/tree/main",
+    "description": "A tool to analyze and optimize website or document content for better visibility in AI-driven generative search engines.",
+    "fullDescription": "🛠️ GEO Tools is an interactive Hugging Face Space built with Streamlit to explore and apply Generative Engine Optimization (GEO). The platform offers website GEO analysis, RAG-augmented content optimization, AI-first SEO scoring, and document Q&A powered by retrieval-augmented generation (RAG). It also includes a content generator tailored for GEO strategies, helping creators adapt to AI-driven search environments like ChatGPT, Gemini, and Perplexity.",
+    "features": [
+      "🌐 Website GEO Analysis",
+      "🔧 RAG-Enhanced Content Optimization",
+      "📊 AI-First SEO Scoring",
+      "📄 Document Q&A with RAG",
+      "🧠 Generate GEO Content",
+      "Interactive UI via Streamlit",
+      "deployment tool using Hugging Face Spaces"
+    ],
+    "challenges": [
+      "Understanding how generative engines reflect content visibility",
+      "Designing an intuitive UI for optimization workflows",
+      "Deploying a real-time demo on Hugging Face Spaces"
+    ],
+    "screenshots": [
+      "/assets/projects-images/Generative_Engine_Optimzation_tool_1.png",
+      "/assets/projects-images/Generative_Engine_Optimzation_tool_2.png",
+      "/assets/projects-images/Generative_Engine_Optimzation_tool_3.png",
+      "/assets/projects-images/Generative_Engine_Optimzation_tool_4.png"
+    ]
+  },
+  {
+    "id": "falafel-kabob",
+    "type": "web_project",
+    "featured": 6,
+    "title": "Falafel Kabob",
+    "tech": "Laravel, Figma, Vercel",
+    "img": "/assets/projects-images/falafel-kabob.webp",
+    "liveLink": "https://falafel-kabob.vercel.app/",
+    "description": "A restaurant ordering site built from Figma designs, with a dynamic menu, cart and checkout.",
+    "fullDescription": "A freelance project for a restaurant. I turned Figma designs into a Laravel web app with layouts that match the design, then built the dynamic menu, shopping cart and full checkout flow for online ordering.",
+    "features": [
+      "Built from Figma designs",
+      "Dynamic menu",
+      "Shopping cart",
+      "Full checkout flow"
+    ]
+  },
+  {
+    "id": "majesticon",
+    "type": "web_project",
+    "title": "Majesticon",
+    "tech": "WordPress, Hostinger",
+    "img": "/assets/projects-images/majesticon.webp",
+    "liveLink": "https://www.majesticon.co.uk/",
+    "description": "A WordPress site launched on Hostinger, with a projects page and a WhatsApp contact widget.",
+    "fullDescription": "A freelance project for a construction company. I deployed the WordPress site on Hostinger and fixed the pre-launch bugs before the public launch. I also built the projects page and added a WhatsApp widget for direct customer contact.",
+    "features": [
+      "Deployed on Hostinger",
+      "Projects page",
+      "WhatsApp contact widget"
+    ]
+  },
+  {
+    "id": "attendance-portal",
+    "type": "web_project",
+    "title": "University Attendance Portal",
+    "tech": "Next.js, SQL",
+    "img": "/assets/projects-images/attendance-portal.webp",
+    "liveLink": "https://attendance-portal-lovat.vercel.app",
+    "description": "A full-stack attendance platform with separate role-based access levels.",
+    "fullDescription": "A full-stack attendance platform with separate role-based access levels, built with Next.js and SQL and deployed on Vercel."
+  },
+  {
+    "id": "skinsight",
+    "type": "android_project",
+    "title": "SkinSight",
+    "tech": "Kotlin, Android",
+    "description": "An Android acne-detection app that runs the full skin-analysis pipeline on the device.",
+    "fullDescription": "An Android acne-detection app that runs the full skin-analysis pipeline on the device. Built in Kotlin, with a Codemagic CI/CD pipeline that runs builds and unit tests automatically."
+  },
+  {
+    "id": "iot-testbed",
+    "type": "iot_project",
+    "title": "IoT Testbed for Real-Time Data Analysis",
+    "tech": "Raspberry Pi, ESP32, IoT",
+    "links": [
+      {
+        "label": "Research article",
+        "href": "https://ppaspk.org/index.php/PPAS-A/article/view/1855"
+      }
+    ],
+    "description": "A distributed sensor testbed built for a PhD research project.",
+    "fullDescription": "A distributed sensor testbed built with Raspberry Pi and ESP32 for a PhD research project, logging data to CSV across three environments."
+  },
+  {
+    "id": "clipboard-history",
+    "type": "desktop_project",
+    "title": "Clipboard History Manager",
+    "tech": "Python, GitHub Actions",
+    "githubLink": "https://github.com/MBilal-21/clipboard-history-mac",
+    "description": "A cross-platform clipboard history app for Windows and macOS, packaged as a .dmg through an automated build pipeline.",
+    "fullDescription": "A cross-platform clipboard history app for Windows and macOS, packaged as a .dmg through an automated GitHub Actions build pipeline."
+  },
+  {
+    "id": "afflixmedia-website",
+    "type": "web_project",
+    "title": "Afflix Media Website",
+    "tech": "Next.js",
+    "img": "/assets/projects-images/afflixmedia.webp",
+    "liveLink": "https://afflixmedia.com/",
+    "description": "The public marketing website for Afflix Media, a TikTok Shop growth agency.",
+    "fullDescription": "The public marketing website for Afflix Media, a TikTok Shop growth agency. It presents the agency's services, results, process and FAQ, and drives visitors to book a strategy call. Built with Next.js."
+  },
+  {
+    "id": "seraphicmedium",
+    "type": "web_project",
+    "title": "Seraphic Medium",
+    "tech": "WordPress",
+    "img": "/assets/projects-images/seraphicmdeium.png",
+    "liveLink": "https://seraphicmedium.com",
+    "description": "WordPress marketing site with an SEO-friendly structure and lead-capture forms.",
+    "fullDescription": "Developed and designed a fully responsive WordPress website for a digital marketing agency. The site highlights core services such as SEO, branding, content creation, social media marketing, and web development. Key responsibilities included custom theme setup, UI/UX design, mobile responsiveness, performance optimization, and SEO structuring. Completed in May 2024.",
+    "features": [
+      "Responsive design",
+      "Custom WordPress theme",
+      "SEO-friendly structure",
+      "Lead-capture contact forms",
+      "Performance tuning"
+    ],
+    "challenges": [
+      "Complex responsive layouts",
+      "Performance optimization with heavy media content"
+    ]
+  },
+  {
+    "id": "hummusgrill",
+    "type": "web_project",
+    "title": "Hummus Grill",
+    "tech": "React, Node.js",
+    "img": "/assets/projects-images/hummusgrill.png",
+    "liveLink": "https://hummus-grill.vercel.app",
+    "githubLink": "https://github.com/MBilal-21/HummusGrill",
+    "description": "A static restaurant site rebuilt as a React app with a product ordering interface.",
+    "fullDescription": "I successfully converted the Hummus Grill website from a static HTML format into a dynamic React.js application. This conversion enhances the website's performance, scalability, and maintainability by leveraging React's component-based architecture. Although the backend integration is pending, I developed the frontend to include a functional product ordering interface, preparing it for seamless future integration with a backend service."
+  },
+  {
+    "id": "filmyworld",
+    "type": "web_project",
+    "title": "FilmyWorld",
+    "tech": "React JS, Firebase",
+    "img": "/assets/projects-images/filmyworld.png",
+    "liveLink": "https://filmyworld-ad629.firebaseapp.com/",
+    "githubLink": "https://github.com/MBilal-21/filmyword",
+    "description": "A simple React-based movie browsing website built during my React JS learning journey.",
+    "fullDescription": "FilmyWorld is my very first project created while learning React JS in 2023 through YouTube tutorials by Web3Mantra. It allows users to browse movies, add reviews, and experience a clean UI. The project demonstrates the fundamentals of React components, props, and state management. It was deployed on Firebase Hosting.",
+    "features": [
+      "Movie browsing interface",
+      "Registered User can review movies",
+      "Responsive design with React components",
+      "Deployed using Firebase Hosting",
+      "Beginner-friendly code structure for learning React"
+    ],
+    "challenges": [
+      "Understanding React state and props for the first time",
+      "Implementing review functionality",
+      "Deploying a React app on Firebase"
+    ],
+    "screenshots": [
+      "/assets/projects-images/filmyworld-1.png",
+      "/assets/projects-images/filmyworld-2.png"
+    ]
+  }
 ]

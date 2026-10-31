@@ -17,8 +17,9 @@ const antonio = Antonio({
 });
 
 export const metadata: Metadata = {
-  title: "Bilal Ashraf",
-  description: "Personal website of Bilal Ashraf, a software engineer and developer.",
+  title: "Bilal Ashraf | Full-Stack Software Engineer",
+  description:
+    "Bilal Ashraf, full-stack software engineer from Pakistan building web platforms and AI integrations with React, TypeScript, Next.js and Supabase.",
 };
 
 export default function RootLayout({

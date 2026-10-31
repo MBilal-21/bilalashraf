@@ -26,11 +26,12 @@ export function Reveal({
   );
 }
 
-// Counts from 0 up to `value` when scrolled into view.
+// Counts from 0 up to `value` when scrolled into view. Renders the final value before that,
+// so the static HTML and no-JS visitors never see "0".
 export function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (!inView) return;

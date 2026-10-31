@@ -7,7 +7,7 @@ import { profile } from "./content";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const wordClass =
-  "overflow-hidden pb-[0.06em] font-display text-[22vw] leading-[0.9] font-bold uppercase tracking-tight text-ink md:text-[9vw] xl:text-[8.5rem]";
+  "overflow-hidden pb-[0.06em] font-display text-[18vw] leading-[0.9] font-bold whitespace-nowrap uppercase tracking-tight text-ink md:text-[6.6vw] xl:text-[6.5rem]";
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -18,6 +18,17 @@ export default function Hero() {
 
   return (
     <section ref={ref} id="home" className="relative overflow-hidden px-4 pt-32 pb-20 md:px-10 md:pt-44 md:pb-32">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4, ease }}
+        className="mx-auto mb-10 flex max-w-7xl justify-center text-center md:mb-24"
+      >
+        <p className="flex items-center gap-2 rounded-full bg-soft px-4 py-1.5 text-sm text-ink">
+          <span className="size-2 shrink-0 animate-pulse rounded-full bg-live" />
+          {profile.openTo}
+        </p>
+      </motion.div>
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-5">
         {/* Left word */}
         <motion.div style={{ x: leftX }} className="relative order-2 self-start md:order-none md:self-auto md:justify-self-end">

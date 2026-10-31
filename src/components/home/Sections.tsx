@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import projects from "@/components/projects.json";
+import ProjectVisual from "@/components/ProjectVisual";
+import { featuredProjects, plainTitle } from "@/components/projectData";
 import Accordion from "./Accordion";
 import { Counter, Reveal } from "./motion";
-import { faqs, highlightStats, insights, profile, services, socials, stats, testimonials } from "./content";
+import { awards, certifications, experience, faqs, insights, profile, services, showInsights, socials, stats } from "./content";
 
 export function SectionHeading({ title, text }: { title: string; text?: string }) {
   return (
@@ -35,7 +36,7 @@ export function Services() {
       <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
         <SectionHeading
           title="What I can do for you"
-          text="I build websites and AI tools that look good, load fast and help your business grow."
+          text="I build web platforms, AI integrations and websites that are fast, reliable and easy to maintain."
         />
         <Reveal delay={0.1}>
           <Accordion
@@ -73,7 +74,7 @@ export function About() {
         <div>
           <SectionHeading
             title="About me"
-            text="Hi, I'm Bilal, a freelance frontend developer and AI enthusiast. I started out learning React from tutorials and now build websites and AI tools for clients, always focused on clean design and solving real problems."
+            text={profile.about}
           />
           <Reveal delay={0.1} className="mt-10 grid grid-cols-3 gap-4">
             {stats.map((s) => (
@@ -122,29 +123,27 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="Featured projects"
-          text="A selection of websites and AI tools I've built, from client sites to my own experiments."
+          text="Production work, AI research and full-stack builds. More on the all projects page."
         />
         {/* Cards stick to the top and stack over each other as you scroll */}
         <div className="mt-12 flex flex-col gap-8">
-          {projects.map((p, i) => (
+          {featuredProjects.map((p, i) => (
             <div key={p.id} className="sticky" style={{ top: `${96 + i * 16}px` }}>
               <Reveal>
                 <Link
                   href={`/projects/${p.id}`}
                   className="group relative block aspect-[4/5] overflow-hidden rounded-3xl bg-panel sm:aspect-[16/10] md:aspect-[16/8]"
                 >
-                  <Image
-                    src={p.img}
-                    alt={p.title}
-                    fill
+                  <ProjectVisual
+                    project={p}
                     sizes="(max-width: 1280px) 100vw, 1280px"
-                    className="object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"
+                    className="opacity-70 transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-6 text-center text-white md:p-12">
                     <span className="rounded-full bg-accent px-3 py-1 text-xs text-on-accent">{p.tech}</span>
                     <h3 className="mt-4 font-display text-4xl leading-none font-bold uppercase tracking-tight md:text-6xl">
-                      {p.title.replace(/^\W+/u, "")}
+                      {plainTitle(p.title)}
                     </h3>
                     {p.description && <p className="mt-3 max-w-xl text-sm text-white/80">{p.description}</p>}
                   </div>
@@ -155,82 +154,6 @@ export function Projects() {
         </div>
         <div className="mt-12 text-center">
           <PillLink href="/projects">Browse all projects</PillLink>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Stars() {
-  return (
-    <div className="flex gap-1 text-accent">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
-function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
-  return (
-    <div className="flex h-full flex-col justify-between gap-6 rounded-2xl bg-soft p-6">
-      <div>
-        <Stars />
-        <p className="mt-4 text-sm leading-relaxed text-ink">{t.quote}</p>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="grid size-9 place-items-center rounded-full bg-ink font-display text-sm text-bg">
-          {t.name.charAt(0)}
-        </div>
-        <div>
-          <p className="text-sm font-semibold text-ink">{t.name}</p>
-          <p className="text-xs text-muted">{t.role}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function HighlightCard({ s, className }: { s: (typeof highlightStats)[number]; className: string }) {
-  return (
-    <div className={`flex h-full flex-col justify-between gap-10 rounded-2xl p-6 ${className}`}>
-      <p className="text-sm opacity-80">{s.note}</p>
-      <div>
-        <p className="font-display text-6xl font-bold">
-          <Counter value={s.value} suffix={s.suffix} />
-        </p>
-        <p className="text-xs opacity-80">{s.label}</p>
-      </div>
-    </div>
-  );
-}
-
-export function Testimonials() {
-  const [a, b, c, d] = testimonials;
-  const cells = [
-    <TestimonialCard key="a" t={a} />,
-    <TestimonialCard key="b" t={b} />,
-    <HighlightCard key="h1" s={highlightStats[0]} className="bg-panel text-white" />,
-    <HighlightCard key="h2" s={highlightStats[1]} className="bg-accent text-on-accent" />,
-    <TestimonialCard key="c" t={c} />,
-    <TestimonialCard key="d" t={d} />,
-  ];
-
-  return (
-    <section id="testimonials" className="px-4 py-20 md:px-10 md:py-28">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          title="What my clients say"
-          text="Feedback from people I've worked with. Their trust keeps me focused on doing great work."
-        />
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cells.map((cell, i) => (
-            <Reveal key={i} delay={(i % 3) * 0.08} className="h-full">
-              {cell}
-            </Reveal>
-          ))}
         </div>
       </div>
     </section>
@@ -253,7 +176,99 @@ export function Faq() {
   );
 }
 
+export function Experience() {
+  return (
+    <section id="experience" className="px-4 py-20 md:px-10 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1fr_1.4fr]">
+        <SectionHeading title="Experience" text="Full-time product work since June 2026, and client projects before that." />
+        <div className="flex flex-col gap-6">
+          {experience.map((job, i) => (
+            <Reveal key={job.role} delay={i * 0.1}>
+              <article className="rounded-2xl bg-soft p-6 md:p-8">
+                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between md:gap-6">
+                  <h3 className="font-display text-2xl leading-tight uppercase tracking-tight text-ink md:text-3xl">
+                    {job.role}
+                    {job.company && (
+                      <>
+                        {", "}
+                        <a href={job.companyHref} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                          {job.company}
+                        </a>
+                      </>
+                    )}
+                  </h3>
+                  <p className="shrink-0 text-sm text-muted">
+                    {job.period} · {job.mode}
+                  </p>
+                </div>
+                <ul className="mt-5 list-disc space-y-2 pl-5 text-sm leading-relaxed text-ink/85 marker:text-accent md:text-base">
+                  {job.points.map((pt) =>
+                    typeof pt === "string" ? (
+                      <li key={pt}>{pt}</li>
+                    ) : (
+                      <li key={pt.name}>
+                        <a href={pt.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink underline-offset-4 hover:text-accent hover:underline">
+                          {pt.name}
+                        </a>
+                        : {pt.text}
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Certifications() {
+  return (
+    <section id="certifications" className="px-4 py-20 md:px-10 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading title="Certifications & awards" />
+        <div className="mt-12 grid gap-10 md:grid-cols-2">
+          <Reveal>
+            <h3 className="font-display text-xl uppercase tracking-wide text-muted">Certifications</h3>
+            <ul className="mt-4 divide-y divide-line border-y border-line">
+              {certifications.map((c) => (
+                <li key={c.name}>
+                  <a href={c.href} target="_blank" rel="noopener noreferrer" className="group flex items-start justify-between gap-4 py-4">
+                    <span>
+                      <span className="block font-semibold text-ink transition-colors group-hover:text-accent">{c.name}</span>
+                      <span className="text-sm text-muted">{c.issuer}</span>
+                    </span>
+                    <span className="shrink-0 text-sm text-muted">{c.date} ↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h3 className="font-display text-xl uppercase tracking-wide text-muted">Awards</h3>
+            <ul className="mt-4 divide-y divide-line border-y border-line">
+              {awards.map((a) => (
+                <li key={a.name} className="flex items-start justify-between gap-4 py-4">
+                  <span>
+                    <span className="block font-semibold text-ink">{a.name}</span>
+                    <span className="text-sm text-muted">{a.issuer}</span>
+                  </span>
+                  <span className="shrink-0 text-sm text-muted">{a.date}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Hidden while `showInsights` is false in content.ts.
 export function Insights() {
+  if (!showInsights) return null;
   return (
     <section id="insights" className="px-4 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-7xl">
@@ -276,7 +291,6 @@ export function Insights() {
                 </div>
                 <div className="mt-4 flex items-center gap-3 text-xs">
                   <span className="rounded-full border border-accent px-2.5 py-0.5 text-accent">{post.tag}</span>
-                  <span className="text-muted">Coming soon</span>
                 </div>
                 <h3 className="mt-3 font-display text-2xl leading-tight uppercase tracking-tight text-ink transition-colors group-hover:text-accent md:text-3xl">
                   {post.title}

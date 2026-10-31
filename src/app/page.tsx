@@ -1,6 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import Hero from "@/components/home/Hero";
-import { About, Faq, Insights, Projects, Services, Testimonials } from "@/components/home/Sections";
+import { About, Certifications, Experience, Faq, Insights, Projects, Services } from "@/components/home/Sections";
 
 export default function Home() {
   return (
@@ -8,8 +8,9 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
+      <Certifications />
+      <Experience />
       <Projects />
-      <Testimonials />
       <Faq />
       <Insights />
       <ContactForm />

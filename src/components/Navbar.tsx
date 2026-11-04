@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Cross1Icon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { navigation } from "@/components/home/content";
 
-const sectionIds = navigation.map((item) => item.href.split("#")[1]);
+const sectionIds = navigation.map((item) => item.href.split("#")[1]).filter(Boolean);
 
 // Tracks which home page section is in the middle of the viewport.
 function useActiveSection(enabled: boolean) {
@@ -41,8 +41,9 @@ export default function Navbar() {
 
   const isActive = (href: string) => {
     const id = href.split("#")[1];
-    if (onHome) return activeSection === id;
-    return id === "projects" && pathname.startsWith("/projects");
+    // Plain page links (e.g. /projects) are active on that page and its subpages.
+    if (!id) return pathname.startsWith(href);
+    return onHome && activeSection === id;
   };
 
   return (

@@ -163,8 +163,31 @@
     "type": "android_project",
     "title": "SkinSight",
     "tech": "Kotlin, Android",
+    "img": "/assets/projects-images/skinsight-feature.webp",
+    "links": [
+      {
+        "label": "Download App",
+        "href": "https://skinsightai.netlify.app/"
+      }
+    ],
     "description": "An Android acne-detection app that runs the full skin-analysis pipeline on the device.",
-    "fullDescription": "An Android acne-detection app that runs the full skin-analysis pipeline on the device. Built in Kotlin, with a Codemagic CI/CD pipeline that runs builds and unit tests automatically."
+    "fullDescription": "An Android acne-detection app that runs the full skin-analysis pipeline on the device. Built in Kotlin, with a Codemagic CI/CD pipeline that runs builds and unit tests automatically.",
+    "features": [
+      "Take a photo or pick one from the gallery, then analyze it with one tap",
+      "Detects five acne types: blackheads, whiteheads, papules, pustules and cysts",
+      "Shows causes and treatment tips for each detected type",
+      "The model runs on the device, so photos never leave the phone"
+    ],
+    "screenshotsLayout": "phone",
+    "screenshots": [
+      "/assets/projects-images/skinsight-1.webp",
+      "/assets/projects-images/skinsight-2.webp",
+      "/assets/projects-images/skinsight-3.webp",
+      "/assets/projects-images/skinsight-4.webp",
+      "/assets/projects-images/skinsight-5.webp",
+      "/assets/projects-images/skinsight-6.webp",
+      "/assets/projects-images/skinsight-7.webp"
+    ]
   },
   {
     "id": "iot-testbed",

@@ -18,6 +18,8 @@ export type Project = {
   challenges?: string[];
   screenshotsTitle?: string;
   screenshots?: string[];
+  /** "phone" shows tall 9:16 screenshots in a denser grid. */
+  screenshotsLayout?: "phone";
   video?: { src: string; poster?: string; caption?: string };
 };
 

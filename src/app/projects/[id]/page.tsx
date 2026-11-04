@@ -26,6 +26,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const links = projectLinks(project);
   // The hero image already shows the first screenshot when they are the same file.
   const screenshots = project.screenshots?.filter((s) => s !== project.img);
+  const phone = project.screenshotsLayout === "phone";
 
   return (
     <div className="mx-auto max-w-4xl px-4 pt-28 pb-16">
@@ -110,20 +111,20 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
               <h2 className="font-display text-3xl font-bold uppercase tracking-tight text-ink">
                 {project.screenshotsTitle ?? "Screenshots"}
               </h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className={phone ? "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4" : "grid grid-cols-1 gap-4 md:grid-cols-2"}>
                 {screenshots.map((screenshot) => (
                   <a
                     key={screenshot}
                     href={screenshot}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative block aspect-video w-full overflow-hidden rounded-xl bg-soft"
+                    className={`relative block w-full overflow-hidden rounded-xl bg-soft ${phone ? "aspect-[9/16]" : "aspect-video"}`}
                   >
                     <Image
                       src={screenshot}
                       alt={`${project.title} ${project.screenshotsTitle ? "diagram" : "screenshot"}`}
                       fill
-                      sizes="(max-width: 768px) 100vw, 448px"
+                      sizes={phone ? "(max-width: 768px) 50vw, 224px" : "(max-width: 768px) 100vw, 448px"}
                       unoptimized={screenshot.endsWith(".svg")}
                       className="object-contain"
                     />

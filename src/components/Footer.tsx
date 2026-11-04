@@ -50,7 +50,7 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-wider opacity-70">Pages</p>
             <ul className="mt-2 space-y-1">
-              {[...navigation, { name: "All Projects", href: "/projects" }].map((item) => (
+              {navigation.map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="font-semibold hover:underline">
                     {item.name}
